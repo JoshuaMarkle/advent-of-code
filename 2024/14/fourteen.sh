@@ -17,10 +17,10 @@ while IFS=" " read -r pos vel; do
     IFS="," read -r x y <<< "$pos"
     IFS="," read -r vx vy <<< "$vel"
 
-    # Simulate position after 100 seconds with wrapping
+    # Simulate position after 100
     x=$((((x + vx * 100) % width + width) % width))
     y=$((((y + vy * 100) % height + height) % height))
-    echo "robot is at $x,$y"
+    # echo "robot is at $x,$y"
 
     # Skip robots on dividing lines
     if [ $x -eq $halfwidth ] || [ $y -eq $halfheight ]; then
